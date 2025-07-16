@@ -18,7 +18,7 @@ const spawn = () => {
     <img class="profile-img" src="assets/${img}" alt>
     
     <div class="info ps-3">
-    <p class="text-coiny my-0 py-0">${name}</p>
+    <p class="text-coiny my-0 py-0 fs-3">${name}</p>
     <p class="my-0 py-0" >${role}</p>
     <p class="text-primary my-0 py-0">${email}</p>
     </div>
