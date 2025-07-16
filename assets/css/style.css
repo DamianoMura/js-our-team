@@ -1,7 +1,41 @@
 *{
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
-  font-family: "Coiny", system-ui;
+  margin : 0;
+  padding : 0;
+  box-sizing : border-box;
+  font-weight : 600;
+}
+.text-coiny{
+  font-family : "Coiny", system-ui;
+}
+
+.text-title{
+  color :rgb(209, 64, 103);
+  
+}
+
+.bg-body-black{
+  color : white;
+  background-color: black;
+}
+/* definisco una mia classe profile e i suoi componenti interni */
+.profile{
+  background-color : black;
+  color : white;
+  display : flex;
+  flex-wrap: wrap;
+  gap:0;
+  
+}
+
+.profile-img  {
+  width : 35%;
+  height : 35%;
+  display : flex;
+}
+
+.profile-img img {
+object-fit : cover;
+width : 100%;
+height : 100%;
 }
 
