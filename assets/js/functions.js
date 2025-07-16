@@ -60,19 +60,36 @@ const e = clicker.addEventListener('click', function(e){
       invalid=true;
     }
   }
+  //controlliamo che la mail sia valida 
   let emailCheck=inputs[2].value;
   console.log(emailCheck)
-  if (emailCheck.indexOf('@')<0){
+  if (emailCheck.indexOf('@')>0){
+    if (emailCheck.indexOf('.')<0 || emailCheck.indexOf('.') < emailCheck.indexOf('@') ){
+      inputs[2].placeholder=inputs[2].placeholder.replace("Insert", "Insert a valid");
+      inputs[2].value="";
+      inputs[2].className='bg-dark text-danger border-danger';
+      invalid=true;
+    }
+  }
+  else{
+    
     inputs[2].placeholder=inputs[2].placeholder.replace("Insert", "Insert a valid");
     inputs[2].value="";
     inputs[2].className='bg-dark text-danger border-danger';
     invalid=true;
   }
+
+  
   if (invalid===true){
     alert("tutti i campi sono obbligatori");
     return;
   }
+  let newMember= {name,role,email,img};
+  teamMembers.push(newMember);
+  
+  console.log(newMember);
 
+  // reset input values
   for (let i=0 ;i<inputs.length ; i++){
     inputs[i].value="";
   }
