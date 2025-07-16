@@ -1,6 +1,7 @@
 //preliminar operations
 //i get the row so i can concatenate the profiles 
 const content = document.querySelector('.row.gy-4');
+
 console.log(content.children.item(0).innerHTML)
 
 // i define the function to spawn all the profiles in the page as instructed
@@ -16,10 +17,10 @@ const spawn = () => {
     
     <img class="profile-img" src="assets/${img}" alt>
     
-    <div class="ps-2">
-    <p class="text-coiny">${name}</p>
-    <p>${role}</p>
-    <p class="text-primary">${email}</p>
+    <div class="info ps-3">
+    <p class="text-coiny my-0 py-0">${name}</p>
+    <p class="my-0 py-0" >${role}</p>
+    <p class="text-primary my-0 py-0">${email}</p>
     </div>
     </div>`;
   }
