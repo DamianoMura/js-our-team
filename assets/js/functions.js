@@ -11,12 +11,12 @@ const spawn = () => {
   for (let i=0 ; i<teamMembers.length ; i++){
     let{ name, role, email, img }=teamMembers[i];
     content.innerHTML+=`
-    <div class="col-12 col-lg-4">
-    <div class="bg-body-black d-flex">
-    <div class="profile-img">
-    <img src="assets/${img}" alt>
-    </div>
-    <div>
+    <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+    <div class="bg-body-black d-flex align-items-center">
+    
+    <img class="profile-img" src="assets/${img}" alt>
+    
+    <div class="ps-2">
     <p class="text-coiny">${name}</p>
     <p>${role}</p>
     <p class="text-primary">${email}</p>
