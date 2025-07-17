@@ -43,31 +43,31 @@ const e = clicker.addEventListener('click', function(e){
   let invalid=false;
 
   //reset input placeholders
-  inputs[0].placeholder="Insert full name";
-  inputs[1].placeholder="Insert role";
-  inputs[2].placeholder="Insert email";
-  inputs[3].placeholder="Insert path eg: img/image.jpg";
+  inputs[0].placeholder = "Insert full name";
+  inputs[1].placeholder = "Insert role";
+  inputs[2].placeholder = "Insert email";
+  inputs[3].placeholder = "Insert img/file.jpg/.png/.svg";
   //reset input colors
   for (let i=0 ;i<inputs.length ; i++){
-    inputs[i].className="bg-body-black";
+    inputs[i].className = "bg-body-black";
   }
-
+  //first validation check to prevent from being empty
   for (let i=0 ; i<inputs.length ; i++){
     
-    if(inputs[i].value==""){
-      inputs[i].className='bg-dark text-danger border-danger';
-      inputs[i].placeholder=inputs[i].placeholder.replace("Insert", "Insert a valid");
+    if(inputs[i].value === ""){
+      inputs[i].className = "bg-dark text-danger border-danger";
+      inputs[i].placeholder = inputs[i].placeholder.replace("Insert", "Insert a valid");
       invalid=true;
     }
   }
-  //controlliamo che la mail sia valida 
+  //check validity of email
   let emailCheck=inputs[2].value;
   console.log(emailCheck)
-  if (emailCheck.indexOf('@')>0){
-    if (emailCheck.indexOf('.')<0 || emailCheck.indexOf('.') < emailCheck.indexOf('@') ){
-      inputs[2].placeholder=inputs[2].placeholder.replace("Insert", "Insert a valid");
-      inputs[2].value="";
-      inputs[2].className='bg-dark text-danger border-danger';
+  if (emailCheck.indexOf('@') > 0){
+    if (emailCheck.indexOf('.') <0 || emailCheck.indexOf('.') < emailCheck.indexOf('@') ){
+      inputs[2].placeholder = inputs[2].placeholder.replace("Insert", "Insert a valid");
+      inputs[2].value = "";
+      inputs[2].className = 'bg-dark text-danger border-danger';
       invalid=true;
     }
   }
@@ -78,7 +78,53 @@ const e = clicker.addEventListener('click', function(e){
     inputs[2].className='bg-dark text-danger border-danger';
     invalid=true;
   }
+  //check if path is valid
+  let path;
+  let file;
+  if ("verifico che inputs[3] abbia una /",inputs[3].value.split('/').length>1){
+    path=inputs[3].value.split('/');
+    
+    if (path[0]==="img" ){
+      if (path[1].split('.').length>1){
+        file=path[1].split('.');
+        if(file[1]!=='jpg' && file[1]!=='svg' && file[1]!=='png'){
+          inputs[3].placeholder=inputs[3].placeholder.replace("Insert", "Insert a valid");
+    inputs[3].value="";
+    inputs[3].className='bg-dark text-danger border-danger'; 
+          invalid=true;
+        }
+      }
 
+    
+    }
+    else{
+        inputs[3].placeholder=inputs[3].placeholder.replace("Insert", "Insert a valid");
+    inputs[3].value="";
+    inputs[3].className='bg-dark text-danger border-danger';
+    invalid=true;
+     
+    }
+    // if (file[1]!=="jpg" || file[1]!=="svg" || file[1]!=="png"){
+    //   inputs[3].placeholder=inputs[3].placeholder.replace("Insert", "Insert a valid");
+    // inputs[3].value="";
+    // inputs[3].className='bg-dark text-danger border-danger';
+    // invalid=true;
+    // }
+    
+  }
+  else{
+    inputs[3].placeholder=inputs[3].placeholder.replace("Insert", "Insert a valid");
+    inputs[3].value="";
+    inputs[3].className='bg-dark text-danger border-danger';
+    invalid=true;
+  }
+  // console.log(path);//debug
+
+  
+  
+
+  
+  
   
   if (invalid===true){
     alert("tutti i campi sono obbligatori");
