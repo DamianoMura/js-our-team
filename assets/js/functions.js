@@ -57,26 +57,26 @@ const e = clicker.addEventListener('click', function(e){
     if(inputs[i].value === ""){
       inputs[i].className = "bg-dark text-danger border-danger";
       inputs[i].placeholder = inputs[i].placeholder.replace("Insert", "Insert a valid");
-      invalid=true;
+      invalid = true;
     }
   }
   //check validity of email
-  let emailCheck=inputs[2].value;
+  let emailCheck = inputs[2].value;
   console.log(emailCheck)
   if (emailCheck.indexOf('@') > 0){
     if (emailCheck.indexOf('.') <0 || emailCheck.indexOf('.') < emailCheck.indexOf('@') ){
       inputs[2].placeholder = inputs[2].placeholder.replace("Insert", "Insert a valid");
       inputs[2].value = "";
       inputs[2].className = 'bg-dark text-danger border-danger';
-      invalid=true;
+      invalid = true;
     }
   }
   else{
     
-    inputs[2].placeholder=inputs[2].placeholder.replace("Insert", "Insert a valid");
-    inputs[2].value="";
-    inputs[2].className='bg-dark text-danger border-danger';
-    invalid=true;
+    inputs[2].placeholder = inputs[2].placeholder.replace("Insert", "Insert a valid");
+    inputs[2].value = "";
+    inputs[2].className = 'bg-dark text-danger border-danger';
+    invalid = true;
   }
   //check if path is valid
   let path;
@@ -86,22 +86,22 @@ const e = clicker.addEventListener('click', function(e){
     
     if (path[0]==="img" ){
       if (path[1].split('.').length>1){
-        file=path[1].split('.');
-        if(file[1]!=='jpg' && file[1]!=='svg' && file[1]!=='png'){
-          inputs[3].placeholder=inputs[3].placeholder.replace("Insert", "Insert a valid");
-    inputs[3].value="";
-    inputs[3].className='bg-dark text-danger border-danger'; 
-          invalid=true;
+        file = path[1].split('.');
+        if(file[1] !== 'jpg' && file[1] !== 'svg' && file[1] !== 'png'){
+          inputs[3].placeholder = inputs[3].placeholder.replace("Insert", "Insert a valid");
+          inputs[3].value = "";
+          inputs[3].className = 'bg-dark text-danger border-danger'; 
+          invalid = true;
         }
       }
 
     
     }
     else{
-        inputs[3].placeholder=inputs[3].placeholder.replace("Insert", "Insert a valid");
-    inputs[3].value="";
-    inputs[3].className='bg-dark text-danger border-danger';
-    invalid=true;
+      inputs[3].placeholder = inputs[3].placeholder.replace("Insert", "Insert a valid");
+      inputs[3].value = "";
+      inputs[3].className = 'bg-dark text-danger border-danger';
+      invalid = true;
      
     }
     // if (file[1]!=="jpg" || file[1]!=="svg" || file[1]!=="png"){
@@ -113,10 +113,10 @@ const e = clicker.addEventListener('click', function(e){
     
   }
   else{
-    inputs[3].placeholder=inputs[3].placeholder.replace("Insert", "Insert a valid");
-    inputs[3].value="";
-    inputs[3].className='bg-dark text-danger border-danger';
-    invalid=true;
+    inputs[3].placeholder = inputs[3].placeholder.replace("Insert", "Insert a valid");
+    inputs[3].value = "";
+    inputs[3].className = 'bg-dark text-danger border-danger';
+    invalid = true;
   }
   // console.log(path);//debug
 
@@ -136,8 +136,8 @@ const e = clicker.addEventListener('click', function(e){
   console.log(newMember);
 
   // reset input values
-  for (let i=0 ;i<inputs.length ; i++){
-    inputs[i].value="";
+  for (let i=0 ; i<inputs.length ; i++){
+    inputs[i].value = "";
   }
   spawn();
 }) 
